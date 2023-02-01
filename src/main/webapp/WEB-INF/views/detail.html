@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form  th:object="${blog}">
+    <h2>Detail Blog</h2>
+    <h3 th:text="*{id}" readonly></h3><br>
+    <h3 th:text="*{title}"></h3><br>
+    <h3 th:text="*{content}"></h3><br>
+    <img th:src="${blog.getImg()}" width="300" height="200"><br>
+    <h3 th:text="*{category.getName()}"></h3>
+    <p>
+    <td><a th:href="@{/delete/{id}(id = ${blog.getId()})}">Delete</a></td>
+    <td><a th:href="@{/edit/{id}(id = ${blog.getId()})}">edit</a></td>
+    </p>
+
+
+</form>
+</body>
+</html>

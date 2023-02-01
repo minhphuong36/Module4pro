@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/edit" method="post" th:object="${blog}" enctype="multipart/form-data">
+    <input th:field="*{id}" readonly><br>
+    <input th:field="*{title}"><br>
+    <input th:field="*{content}"><br>
+    <input th:field="*{img}" readonly><br>
+    <img th:src="${blog.getImg()}" width="300" height="200"><br>
+    <select th:field="*{category}">
+        <option th:each="c : ${categories}" th:value="${c.getId()}" th:text="${c.getName()}"></option>
+    </select><br>
+    <input name="fileImg" type="file"><br>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>
