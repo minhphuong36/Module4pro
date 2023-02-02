@@ -49,6 +49,12 @@
         </div>
     </div>
 </div>
+<hr>
+<a th:if="${blogs.hasNext()}"th:href="@{/blogs(page=${blogs.getNumber()+1})}">---->>>>></a>
+<b th:text="${blogs.getNumber()+1}"></b>/<b th:text="${blogs.getTotalPages()}"></b>
+<a th:if="${blogs.hasPrevious()}"th:href="@{/blogs(page=${blogs.getNumber()-1})}"><<<<<---</a>
+
+
 
 <div class="jumbotron text-center" style="margin-bottom:0">
     <p>Footer</p>
